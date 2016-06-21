@@ -9,7 +9,7 @@ describe NumeralSystem do
     end
   end
 
-  describe '.get_roman_symbols_at_power' do
+  describe '.get_symbols_at_order_of_magnitude' do
     context 'when order magnitude is negative' do
       it 'raises a RangeError' do
         expect {numeral_system_class.send(:get_symbols_at_order_of_magnitude, -1)}.to raise_error(RangeError)

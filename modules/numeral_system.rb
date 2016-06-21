@@ -5,11 +5,10 @@ module NumeralSystem
   
   module ClassMethods
     def from_natural(number, **params)
-      raise ArgumentError, 'Roman symbols only work with natural numbers' if number < 0
+      raise ArgumentError, 'Numeral system only work with natural numbers' if number < 0
       params[:overflow] ||= false
       res = ''
       number.to_s(10).reverse.chars.each_with_index do |v, index|
-        #Roman symbols have two symbols for every power of 10 (unit_symbol and five_unit_symbol, we can find the symbol in the hash
         res.insert(0, from_natural_at_order_of_magnitude(v.to_i, index, params))
       end
       res
